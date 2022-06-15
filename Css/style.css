@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2? family= Justo & family= Roboto:ital,wght@0,500;0,900;1,500;1,700;1,900 & display=swap');
+
+body {
+    background: #E5E5E5;
+}
+
+.conteudo {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 56px;
+font-weight: 700;
+line-height: 66px;
+letter-spacing: -0.004em;
+text-align: left;
+color: #75B79E;
+margin-bottom: 20px;
+
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 980px;
+    height: 350px;
+}
+
+.card { 
+height: 146px;
+width: 117px;
+left: 122px;
+top: 150px;
+border-radius: 5px;
+border: 1px solid #99CEA8;
+background: #A7E9AF;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 20px 20px;
+}
+
+img {
+height: 100px;
+width: 100px;
+left: 132px;
+top: 174px;
+border-radius: 0px;
+}
+
+
+
+@media (max-width: 600px) {
+
+    .titulo {
+        text-align: center;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        max-width: 300px;
+        height: 350px;
+        
+    }
+}
