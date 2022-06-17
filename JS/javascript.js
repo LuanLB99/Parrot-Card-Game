@@ -23,7 +23,7 @@ function misturar() {
 function distribuiCartas() {
  const painel = document.querySelector('.cards');
  painel.innerHTML = '';
- const cartasNoJogo = [];
+ let cartasNoJogo = [];
 
  for (let i = 0; i < qtdCartas; i++) {
     cartasNoJogo.push(deck[i]);
@@ -34,7 +34,7 @@ function distribuiCartas() {
 for (let i = 0; i < qtdCartas; i ++) {
     const cartasTemplate = `<div class="card">
     <div class="front-card face"> <img src="front.png" alt=""> </div>
-    <div class="back-card face"> <img src=${deck[i]} alt=""> </div>
+    <div class="back-card face"> <img src=${cartasNoJogo[i]} alt=""> </div>
     </div>`;
     painel.innerHTML += cartasTemplate;
 }
