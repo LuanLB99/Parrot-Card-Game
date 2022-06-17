@@ -1,4 +1,4 @@
-const deck = ['<div class="card"><img src="front.png" alt=""></div>', '<div class="card"><img src="front.png" alt=""></div>', '<div class="card"><img src="front.png" alt=""></div>', '<div class="card"><img src="front.png" alt=""></div>'];
+const deck = ['bobrossparrot.gif', 'bobrossparrot.gif', 'explodyparrot.gif', 'explodyparrot.gif', 'fiestaparrot.gif','fiestaparrot.gif', 'metalparrot.gif','metalparrot.gif'];
 let qtdCartas;
 iniciaJogo();
 
@@ -14,4 +14,28 @@ function iniciaJogo() {
     
 }
 
+function misturar() {
+    return 0.5 - Math.random();
+}
 
+
+
+function distribuiCartas() {
+ const painel = document.querySelector('.cards');
+ painel.innerHTML = '';
+ const cartasNoJogo = [];
+
+ for (let i = 0; i < qtdCartas; i++) {
+    cartasNoJogo.push(deck[i]);
+ }
+
+ cartasNoJogo.sort(misturar);
+
+for (let i = 0; i < qtdCartas; i ++) {
+    const cartasTemplate = `<div class="card">
+    <div class="front-card face"> <img src="front.png" alt=""> </div>
+    <div class="back-card face"> <img src=${deck[i]} alt=""> </div>
+    </div>`;
+    painel.innerHTML += cartasTemplate;
+}
+}

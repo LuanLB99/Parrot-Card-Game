@@ -44,6 +44,25 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin: 20px 20px;
+position: relative;
+}
+
+.face {
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all 3seg;
+    transform-style: preserve-3d;
+}
+
+.back-card {
+    transform: rotateY(180deg);
+}
+
+.card:hover .front-card {
+    transform: rotateY(180deg);
+}
+.card:hover .back-card {
+    transform: rotateY(360deg);
 }
 
 img {
@@ -53,6 +72,7 @@ left: 132px;
 top: 174px;
 border-radius: 0px;
 }
+
 
 
 
