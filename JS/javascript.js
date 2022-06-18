@@ -1,5 +1,6 @@
 let cartaVirada = false;
-
+let contador = 0;
+let qtdJogadas;
 let primeiraCarta; 
 let segundaCarta;
 
@@ -19,7 +20,7 @@ function iniciaJogo() {
     if (qtdCartas % 2 == 0 && qtdCartas >= 4 && qtdCartas <= 14) {
         distribuiCartas();
     } else if (qtdCartas % 2 != 0 ) {
-       alert =('Por favor insira um número par entre 4 e 14');
+        alert =('Por favor insira um número par entre 4 e 14');
         iniciaJogo();
     }
     
@@ -58,6 +59,7 @@ function viraCarta() {
     if (!cartaVirada) {
         cartaVirada = true;
         primeiraCarta = this
+        contador++;
         return;
     }
 
@@ -84,8 +86,16 @@ function desvirarCartas(){
     setTimeout(() => {
         primeiraCarta.classList.remove('virada');
         segundaCarta.classList.remove('virada');
-    }, 1500);
+    }, 1000);
+}
+
+function contaJogadas() {
+        if (contador == 2) {
+            qtdJogadas++;
+            contador = 0;
+        }
 }
 
 cartas.forEach(carta => carta.addEventListener('click',viraCarta))
 
+console.log(qtdJogadas);
