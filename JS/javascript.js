@@ -3,7 +3,7 @@ let contador = 0;
 let qtdJogadas;
 let primeiraCarta; 
 let segundaCarta;
-
+let cartasNoJogo;
 const deck = ['bobrossparrot.gif', 'bobrossparrot.gif',
             'explodyparrot.gif', 'explodyparrot.gif', 
             'fiestaparrot.gif','fiestaparrot.gif', 
@@ -59,14 +59,14 @@ function viraCarta() {
     if (!cartaVirada) {
         cartaVirada = true;
         primeiraCarta = this
-        contador++;
         return;
     }
 
     segundaCarta = this;
     cartaVirada = false;
-
-    checar()
+    contaJogadas();
+    checar();
+    terminaJogo();
 }
 
 function checar() {
@@ -90,12 +90,20 @@ function desvirarCartas(){
 }
 
 function contaJogadas() {
-        if (contador == 2) {
-            qtdJogadas++;
-            contador = 0;
-        }
+        contador++;
 }
 
 cartas.forEach(carta => carta.addEventListener('click',viraCarta))
-
-console.log(qtdJogadas);
+let transformado;
+function terminaJogo() {
+    const transformado = Array.from(cartas);
+    const meuRetorno = transformado.every((valorAtual) => {
+        console.log(valorAtual.className);
+        return valorAtual.className === 'card virada';
+        
+    });
+       if (meuRetorno) {
+        alert(`Parabens!! Você venceu em ${contador} jogadas.`)
+       }
+    }
+    
